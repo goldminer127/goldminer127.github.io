@@ -1,0 +1,10 @@
+.projectLangButton
+{
+    color: white;
+    width: 4rem;
+    margin: 0 1.5vw 0 1.5vw;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    font-size: large;
+    font-family: 'Cascadia Code', sans-serif;
+}
