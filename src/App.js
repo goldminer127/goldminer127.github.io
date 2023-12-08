@@ -56,9 +56,10 @@ function App() {
     let element = document.getElementById(contentState)
     if(element !== null)
     {
-      let elements = document.querySelectorAll("#container div");
+      let elements = element.childNodes;
       for(let i = 0; i < elements.length; i++)
       {
+        let elm = new HTMLElement(elements[i]);
       }
       for(let i = 0; i < elements.length; i++)
       {
