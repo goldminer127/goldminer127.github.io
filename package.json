@@ -2,7 +2,7 @@
   "name": "github-website",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://goldminer127.github.io/goldminer127.github.io",
+  "homepage": "https://goldminer127.github.io/",
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
