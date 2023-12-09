@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/goldminer127.github.io/static/css/main.bb490191.css",
+    "main.js": "/goldminer127.github.io/static/js/main.0460b8db.js",
+    "static/js/787.b5b877c7.chunk.js": "/goldminer127.github.io/static/js/787.b5b877c7.chunk.js",
+    "index.html": "/goldminer127.github.io/index.html",
+    "main.bb490191.css.map": "/goldminer127.github.io/static/css/main.bb490191.css.map",
+    "main.0460b8db.js.map": "/goldminer127.github.io/static/js/main.0460b8db.js.map",
+    "787.b5b877c7.chunk.js.map": "/goldminer127.github.io/static/js/787.b5b877c7.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bb490191.css",
+    "static/js/main.0460b8db.js"
+  ]
+}
