@@ -14,6 +14,8 @@ const NavButton = (props) =>
     const onMouseOverHandler = async () =>
     {
         const button = document.getElementById(props.text + "button");
+        button.getAnimations().every(animation => animation.cancel());
+
         let bLeftPrevious = "1px solid rgba(255, 255, 255, 0)";
         let bTopPrevious = "1px solid rgba(255, 255, 255, 0)";
         let bRightPrevious = "1px solid rgba(255, 255, 255, 0)";
@@ -34,7 +36,8 @@ const NavButton = (props) =>
     const onMouseLeaveHandler = async () =>
     {
         const button = document.getElementById(props.text + "button");
-        button.style.border = "1px solid rgba(0, 0, 0, 0)"; //needed in case user mouses off button near 0 tick
+        button.getAnimations().every(animation => animation.cancel());
+        
         button.animate([
             {border: "1px solid white"},
             {borderLeft: "1px solid rgba(255, 255, 255, 0)", borderTop: "1px solid rgba(255, 255, 255, 1)", borderRight: "1px solid rgba(255, 255, 255, 1)", borderBottom: "1px solid rgba(255, 255, 255, 1)"},
