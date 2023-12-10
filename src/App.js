@@ -20,7 +20,7 @@ function App() {
     else if(content === "projects")
     {
       return (
-        <Box id="projects" component="div" sx={{width: '90%', height: '75vh', margin: 'auto 5% auto 5%', display: 'flex'}}>
+        <Box component="div" sx={{width: '90%', height: '75vh', margin: 'auto 5% auto 5%', display: 'flex'}}>
           <Box component="div" sx={{display: 'flex', height: '2.5rem'}}>
             <ProjectLangButton display="C#" buttonid={0}/>
             <ProjectLangButton display="Java" buttonid={1}/>
@@ -50,27 +50,6 @@ function App() {
     switchContentAnimation();
   }
 
-  const animateChildElement = () =>
-  {
-    //inline animation because I don't know any better way for this
-    let element = document.getElementById(contentState)
-    if(element !== null)
-    {
-      let elements = element.childNodes;
-      for(let i = 0; i < elements.length; i++)
-      {
-        let elm = new HTMLElement(elements[i]);
-      }
-      for(let i = 0; i < elements.length; i++)
-      {
-        elements[i].animate([
-          {opacity: "0"},
-          {opacity: "1"}
-        ], {duration: 50});
-      }
-    }
-  }
-
   const switchContentAnimation = () =>
   {
 
@@ -85,11 +64,12 @@ function App() {
           </Box>
         </Box>
         <Box component="div" sx={{width: '50%', height: '100%', justifyContent: 'flex-end', display: 'flex'}}>
+        <NavButton text="Home" onClick={switchContent.bind(this)} content="home"/>
           <NavButton text="Projects" onClick={switchContent.bind(this)} content="projects"/>
           <NavButton text="Contact Me" onClick={switchContent.bind(this)} content="contact"/>
         </Box>
       </Box>
-      <div onLoad={animateChildElement}>
+      <div>
         {displayContent(contentState)}
       </div>
     </Box>

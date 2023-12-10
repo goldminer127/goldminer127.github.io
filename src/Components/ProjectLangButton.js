@@ -1,7 +1,19 @@
+import { useEffect } from "react";
 import "./ProjectLangButton.css"
 
 const ProjectLangButton = (props) =>
 {
+    useEffect(() => {
+        let element = document.getElementById("langButton" + props.buttonid);
+        element.style.opacity = "0";
+        element.animate([
+            {opacity: "0"},
+            {opacity: "1"}
+          ], {duration: 500, delay: 250 * props.buttonid}).onfinish = () => {
+            element.style.opacity = "1";
+        };
+    });
+
     const onMouseOverHandler = () =>
     {
         let button = document.getElementById("langButton" + props.buttonid);

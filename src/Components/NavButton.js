@@ -14,7 +14,6 @@ const NavButton = (props) =>
     const onMouseOverHandler = async () =>
     {
         const button = document.getElementById(props.text + "button");
-        button.getAnimations().every(animation => animation.cancel());
 
         let bLeftPrevious = "1px solid rgba(255, 255, 255, 0)";
         let bTopPrevious = "1px solid rgba(255, 255, 255, 0)";
@@ -36,8 +35,8 @@ const NavButton = (props) =>
     const onMouseLeaveHandler = async () =>
     {
         const button = document.getElementById(props.text + "button");
-        button.getAnimations().every(animation => animation.cancel());
         
+        button.style.border = "1px solid rgba(0, 0, 0, 0)"; //needed to remove animation stutter at the end
         button.animate([
             {border: "1px solid white"},
             {borderLeft: "1px solid rgba(255, 255, 255, 0)", borderTop: "1px solid rgba(255, 255, 255, 1)", borderRight: "1px solid rgba(255, 255, 255, 1)", borderBottom: "1px solid rgba(255, 255, 255, 1)"},
@@ -46,7 +45,7 @@ const NavButton = (props) =>
             {borderLeft: "1px solid rgba(255, 255, 255, 0)", borderTop: "1px solid rgba(255, 255, 255, 0)", borderRight: "1px solid rgba(255, 255, 255, 0)", borderBottom: "1px solid rgba(255, 255, 255, 0)"}
         ], {duration: 600});
         await new Promise(r => setTimeout(r, 600));
-        button.style.border = "1px solid rgba(0, 0, 0, 0)";
+        button.style.border = "1px solid rgba(0, 0, 0, 0)"; //needed in case mouse passes over button rapidly causing an animation error
     }
     const animation = () =>
     {
