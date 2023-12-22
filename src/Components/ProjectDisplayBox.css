@@ -1,0 +1,45 @@
+.header-text.test
+{
+    animation: pulse 5s;
+}
+
+.header-text.test::after
+{
+    content: "";
+	animation: spin 5s linear;
+}
+
+.project-cover-image
+{
+    width: 50%;
+    height: 50%;
+}
+
+@keyframes pulse {
+	0% {
+	color: #051E3E;
+	}
+	10% {
+		color: #051E3E;
+	}
+	30% {
+		color: white;
+	}
+	50% {
+		color: #051E3E;
+	}
+	60% {
+		color: #051E3E;
+	}
+	80% {
+		color: white;
+	}
+	100% {
+		color: #051E3E;
+	}
+}
+
+@keyframes spin {
+    0% { content:"Hi"; }
+    100% { content:"How do you like it?"; }
+  }

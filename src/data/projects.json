@@ -1,0 +1,26 @@
+[
+    {
+        "language": "C#",
+        "name": "GameTime",
+        "description": "A discord bot",
+        "coverImage": "/assets/github.png"
+    },
+    {
+        "language": "C#",
+        "name": "Lookup",
+        "description": "An internship project",
+        "coverImage": ""
+    },
+    {
+        "language": "C#",
+        "name": "Glacoma test",
+        "description": "A dev job",
+        "coverImage": ""
+    },
+    {
+        "language": "Lua",
+        "name": "TShell",
+        "description": "A minecraft mod extension",
+        "coverImage": ""
+    }
+]

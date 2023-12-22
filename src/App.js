@@ -1,11 +1,15 @@
 import './Generic.css';
-import { Box, Button } from '@mui/material';
+import { Box } from '@mui/material';
 import NavButton from "./Components/NavButton";
 import ProjectLangButton from './Components/ProjectLangButton';
+import ProjectDisplayBox from './Components/ProjectDisplayBox';
 import { useState } from 'react';
 
 function App() {
+  const data = require("./data/projects.json");
+
   let[contentState, changeContent] = useState("home");
+  let[langContentState, changeLang] = useState("none");
 
   const displayContent = (content) =>
   {
@@ -19,13 +23,22 @@ function App() {
     }
     else if(content === "projects")
     {
+      //Used to adjust content box to match margins
+      let width = window.visualViewport.width * .9 - (16 * 8); //16px = 1rem
+      let height = window.visualViewport.height * .75 - (16 * 8);
+
       return (
-        <Box component="div" sx={{width: '90%', height: '75vh', margin: 'auto 5% auto 5%', display: 'flex'}}>
+        <Box component="div" sx={{width: '90%', height: '75vh', margin: 'auto 5% auto 5%'}}>
           <Box component="div" sx={{display: 'flex', height: '2.5rem'}}>
-            <ProjectLangButton display="C#" buttonid={0}/>
-            <ProjectLangButton display="Java" buttonid={1}/>
-            <ProjectLangButton display="Lua" buttonid={2}/>
-            <ProjectLangButton display="Rust" buttonid={3}/>
+            <ProjectLangButton display="C#" buttonid={0} onClick={switchLangContent.bind(this)}/>
+            <ProjectLangButton display="Java" buttonid={1} onClick={switchLangContent.bind(this)}/>
+            <ProjectLangButton display="Lua" buttonid={2} onClick={switchLangContent.bind(this)}/>
+            <ProjectLangButton display="Rust" buttonid={3} onClick={switchLangContent.bind(this)}/>
+          </Box>
+          <Box id="language-content-wrapper" component="div" sx={{width: '100%', height: '100%', marginTop:'2rem', display: 'flex', border: 'solid white 2px', borderRadius: '5rem'}}>
+            <Box id="langauge-content" component="div" sx={{width: {width}, height: {height}, display: 'flex', margin: '4rem', justifyContent: 'center', flexWrap: 'wrap', alignItems: 'center', columnGap: '10%'}}>
+              {displayLangContent()}
+            </Box>
           </Box>
         </Box>
       )
@@ -47,12 +60,29 @@ function App() {
   const switchContent = (content) =>
   {
     changeContent(content);
-    switchContentAnimation();
   }
 
-  const switchContentAnimation = () =>
+  const switchLangContent = (type) =>
   {
+    changeLang(type);
+  }
 
+  const displayLangContent = () =>
+  {
+    let projects = [];
+    let filteredProjects = data.filter(entry => entry.language === langContentState);
+
+    for(let i = 0; i < filteredProjects.length; i++)
+    {
+      let entry = filteredProjects[i];
+      projects.push(
+        <Box component="div" key={i}>
+          <ProjectDisplayBox name={entry.name} coverImage={entry.coverImage} language={entry.language} index={i}/>)
+        </Box>
+      );
+    }
+    
+    return (projects);
   }
 
   return (
