@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import '../Generic.css';
-import "./ProjectDisplayBox.css"
+import "./ProjectDisplayCard.css"
 import { Box } from '@mui/material';
 
 const ProjectLangBox = (props) =>
@@ -9,6 +9,10 @@ const ProjectLangBox = (props) =>
         let loadBox = document.getElementById(props.name + "load-box");
         let displayBox = document.getElementById(props.name + "display-box");
 
+        loadBox.getAnimations().every(animation => animation.cancel());
+        displayBox.getAnimations().every(animation => animation.cancel());
+
+        loadBox.style.display = "block";
         displayBox.style.display = "none";
 
         let animation = loadBox.animate([
@@ -18,7 +22,6 @@ const ProjectLangBox = (props) =>
         ], {duration: 500, delay: 500 * props.index});
         animation.onfinish = () => {
             loadBox.style.display = "none";
-            displayBox.style.display = "none";
             let displayAnimation = displayBox.animate([
                 {display: 'block', opacity: '0'},
                 {display: 'block', opacity: '1'}
@@ -26,6 +29,9 @@ const ProjectLangBox = (props) =>
             displayAnimation.onfinish = () => {
                 displayBox.style.display = "block";
             }
+        };
+        animation.oncancel = () => {
+            displayBox.style.display = "none";
         };
     });
     return(

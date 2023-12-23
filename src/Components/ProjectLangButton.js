@@ -5,8 +5,7 @@ const ProjectLangButton = (props) =>
 {
     useEffect(() => {
         let element = document.getElementById("langButton" + props.buttonid);
-        console.log(props.shouldExecuteUseEffect);
-        if(props.shouldExecuteUseEffect)
+        if(props.rerenderHandler.shouldNotPlayAnimation !== "ProjectLangButton")
         {
             element.style.opacity = "0";
             let animation = element.animate([
