@@ -5,18 +5,25 @@ const ProjectLangButton = (props) =>
 {
     useEffect(() => {
         let element = document.getElementById("langButton" + props.buttonid);
-        element.style.opacity = "0";
-        let animation = element.animate([
-            {opacity: "0"},
-            {opacity: "1"}
-          ], {duration: 500, delay: 250 * props.buttonid});
-        animation.onfinish = () => {
+        console.log(props.shouldExecuteUseEffect);
+        if(props.shouldExecuteUseEffect)
+        {
+            element.style.opacity = "0";
+            let animation = element.animate([
+                {opacity: "0"},
+                {opacity: "1"}
+              ], {duration: 500, delay: 250 * props.buttonid});
+            animation.onfinish = () => {
+                element.style.opacity = "1";
+            };
+            animation.oncancel = () => {
+                element.style.opacity = "1";
+            };
+        }
+        else
+        {
             element.style.opacity = "1";
-            element.style.contain = "sdokhvfiojhjiokdrh";
-        };
-        animation.oncancel = () => {
-            element.style.opacity = "1";
-        };
+        }
     });
 
     const onMouseOverHandler = () =>

@@ -7,9 +7,11 @@ import { useState } from 'react';
 
 function App() {
   const data = require("./data/projects.json");
-
+  //Pass a state or hardcoded variable into lang buttons basically saying should it update or not. Upon first load it should use animation, upon select it should not. You can control it with the switch content function
   let[contentState, changeContent] = useState("home");
   let[langContentState, changeLang] = useState("none");
+
+  let shouldUseEffect = true; //Controls if lang buttons should perform entry animation
 
   const displayContent = (content) =>
   {
@@ -30,10 +32,10 @@ function App() {
       return (
         <Box component="div" sx={{width: '90%', height: '75vh', margin: 'auto 5% auto 5%'}}>
           <Box component="div" sx={{display: 'flex', height: '2.5rem'}}>
-            <ProjectLangButton display="C#" buttonid={0} onClick={switchLangContent.bind(this)}/>
-            <ProjectLangButton display="Java" buttonid={1} onClick={switchLangContent.bind(this)}/>
-            <ProjectLangButton display="Lua" buttonid={2} onClick={switchLangContent.bind(this)}/>
-            <ProjectLangButton display="Rust" buttonid={3} onClick={switchLangContent.bind(this)}/>
+            <ProjectLangButton display="C#" buttonid={0} shouldExecuteUseEffect={shouldUseEffect} onClick={switchLangContent.bind(this)}/>
+            <ProjectLangButton display="Java" buttonid={1} shouldExecuteUseEffect={shouldUseEffect} onClick={switchLangContent.bind(this)}/>
+            <ProjectLangButton display="Lua" buttonid={2} shouldExecuteUseEffect={shouldUseEffect} onClick={switchLangContent.bind(this)}/>
+            <ProjectLangButton display="Rust" buttonid={3} shouldExecuteUseEffect={shouldUseEffect} onClick={switchLangContent.bind(this)}/>
           </Box>
           <Box id="language-content-wrapper" component="div" sx={{width: '100%', height: '100%', marginTop:'2rem', display: 'flex', border: 'solid white 2px', borderRadius: '5rem'}}>
             <Box id="langauge-content" component="div" sx={{width: {width}, height: {height}, display: 'flex', margin: '4rem', justifyContent: 'center', flexWrap: 'wrap', alignItems: 'center', columnGap: '10%'}}>
@@ -70,18 +72,18 @@ function App() {
   const displayLangContent = () =>
   {
     let projects = [];
-    let filteredProjects = data.filter(entry => entry.language === langContentState);
+    let index = 0;
 
-    for(let i = 0; i < filteredProjects.length; i++)
-    {
-      let entry = filteredProjects[i];
+    shouldUseEffect = false;
+
+    data.filter(entry => entry.language === langContentState).forEach(entry => {
       projects.push(
-        <Box component="div" key={i}>
-          <ProjectDisplayBox name={entry.name} coverImage={entry.coverImage} language={entry.language} index={i}/>)
+        <Box component="div" key={index}>
+          <ProjectDisplayBox name={entry.name} coverImage={entry.coverImage} language={entry.language} index={index}/>)
         </Box>
       );
-    }
-    
+      index++;
+    });
     return (projects);
   }
 
