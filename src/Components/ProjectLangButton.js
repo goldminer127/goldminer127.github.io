@@ -100,6 +100,11 @@ const ProjectLangButton = (props) =>
     }
     const onClickHandler = () =>
     {
+        const button = document.getElementById("langButton" + props.buttonid);
+        button.animate([
+            {background: "rgb(150,150,150)", color: "black"},
+            {background: "rgba(0,0,0,0)", color: "white"}
+        ], {duration: 200});
         props.onClick(props.display);
     }
     return(
