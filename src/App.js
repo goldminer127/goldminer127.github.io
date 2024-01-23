@@ -4,8 +4,9 @@ import NavButton from "./Components/NavButton";
 import RerenderAnimationHandler from './RerenderAnimationHandler'
 import { useState } from 'react';
 import ProjectContentBox from './Components/ProjectContentBox';
+import TestComponent from './Components/TestComponent';
 
-//Tells components if they should play animation on rerender
+//Disables animations for added components on rerender if states change
 let rerenderAnimationHandler = new RerenderAnimationHandler();
 
 function App() {
@@ -14,38 +15,39 @@ function App() {
 
   const displayContent = (content) =>
   {
-    if(content === "home")
+    switch(content)
     {
-      return (
-        <Box className="home-text" component="div" sx={{width: '90%', height: '75vh', margin: 'auto 5% auto 5%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-          I am a developer who just recently graduated from University at Albany, SUNY. I've worked with C#, HTML/CSS/JS and others.
-        </Box>
-      );
-    }
-    else if(content === "projects")
-    {
-      return (
-        <ProjectContentBox langs={["C#", "Java", "Lua", "Rust"]} rerenderAnimationHandler={rerenderAnimationHandler}/>
-      );
-    }
-    else if(content === "contact")
-    {
-      
-    }
-    else if(content === "secret")
-    {
-      return (
-        <Box component="div" sx={{width: '90%', height: '75vh', border: '1px solid white', borderRadius: '50px', margin: 'auto 5% auto 5%', bgcolor: 'rgb(38, 38, 38)'}}>
-          Test
-        </Box>
-      );
+      case "home":
+        return (
+          <Box className="home-text" component="div" sx={{width: '90%', height: '75vh', margin: 'auto 5% auto 5%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+            I am a developer who just recently graduated from University at Albany, SUNY. I've worked with C#, HTML/CSS/JS and others.
+          </Box>
+        );
+      case "projects":
+        return (
+          <ProjectContentBox langs={["C#", "Java", "Lua", "Rust"]} rerenderAnimationHandler={rerenderAnimationHandler}/>
+        );
+      case "contact":
+        return (
+          <Box component="div" sx={{width: '90%', height: '75vh', margin: 'auto 5% auto 5%', display: 'flex', justifyContent: 'center', alignItems: 'center', backgroundColor: "white"}}>
+            <TestComponent sx={{width: '100%', height: '100%'}}></TestComponent>
+          </Box>
+        );
+      case "secret":
+        return (
+          <Box component="div" sx={{width: '90%', height: '75vh', border: '1px solid white', borderRadius: '50px', margin: 'auto 5% auto 5%', bgcolor: 'rgb(38, 38, 38)'}}>
+            Test
+          </Box>
+        );
+      default:
+        return undefined;
     }
   }
 
   const switchContent = (content) =>
   {
     changeContent(content);
-    rerenderAnimationHandler.setShouldNotPlayAnimation("");
+    rerenderAnimationHandler.resetShouldNotPlayAnimation();
   }
 
   return (

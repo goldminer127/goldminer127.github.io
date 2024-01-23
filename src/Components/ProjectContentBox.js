@@ -12,23 +12,28 @@ const ProjectContentBox = (props) => {
 
     useEffect(() => {
         let element = document.getElementById("language-content-wrapper");
-        if(props.rerenderAnimationHandler.shouldNotPlayAnimation !== "ProjectLangButton")
+        if(props.rerenderAnimationHandler.shouldNotPlayAnimation.includes("ProjectLangButton") && !props.rerenderAnimationHandler.shouldNotPlayAnimation.includes("language-content-wrapper"))
         {
             element.style.opacity = "0";
             let animation = element.animate([
                 {opacity: "0"},
                 {opacity: "1"}
-              ], {duration: 2000});
+              ], {duration: 500});
             animation.onfinish = () => {
                 element.style.opacity = "1";
             };
             animation.oncancel = () => {
                 element.style.opacity = "1";
             };
+            props.rerenderAnimationHandler.setShouldNotPlayAnimation("language-content-wrapper");
+        }
+        else if(props.rerenderAnimationHandler.shouldNotPlayAnimation.includes("language-content-wrapper"))
+        {
+            element.style.opacity = "1";
         }
         else
         {
-            element.style.opacity = "1";
+            element.style.opacity = "0";
         }
     });
 
@@ -36,7 +41,7 @@ const ProjectContentBox = (props) => {
     {
         if(projectDisplayState !== "none")
             changeProject("none");
-
+        
         changeLang(type);
     }
 
