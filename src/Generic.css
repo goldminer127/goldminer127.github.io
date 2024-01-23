@@ -1,0 +1,30 @@
+.title-text
+{
+  color: white;
+  font-size: 3rem;
+  font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', 'sans-serif';
+}
+.header-text
+{
+  color: white;
+  font-size: xx-large;
+  font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', 'sans-serif';
+}
+.home-text
+{
+  color: white;
+  font-size: larger;
+  font-family: 'Cascadia Code', sans-serif;
+}
+.std-text
+{
+  color: white;
+  font-size: large;
+  font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', 'sans-serif';
+}
+.center
+{
+  text-align: center;
+  vertical-align: middle;
+  line-height: 100%;
+}

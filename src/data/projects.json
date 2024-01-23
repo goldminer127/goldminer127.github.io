@@ -1,0 +1,90 @@
+[
+    {
+        "language": "C#",
+        "name": "GameTime",
+        "description": "A discord bot that allows server members to play mini-games on. This was my first project outside of school and my intro to C#. This project evolves as I expand my abilities.",
+        "coverImage": "",
+        "links": [["", "https://github.com/goldminer127/GameTime", "Source Code"]],
+        "displayTemplate": "demo"
+    },
+    {
+        "language": "C#",
+        "name": "Lookup",
+        "description": "An internship project",
+        "coverImage": "",
+        "links": [],
+        "displayTemplate": "default"
+    },
+    {
+        "language": "C#",
+        "name": "Glacoma test",
+        "description": "A dev job",
+        "coverImage": "",
+        "links": [],
+        "displayTemplate": "default"
+    },
+    {
+        "language": "Lua",
+        "name": "TShell",
+        "description": "A minecraft mod extension",
+        "coverImage": "",
+        "links": [],
+        "displayTemplate": "default"
+    },
+    {
+        "language": "Java",
+        "name": "Test1",
+        "description": "This is a prop",
+        "coverImage": "",
+        "links": [],
+        "displayTemplate": "default"
+    },
+    {
+        "language": "Java",
+        "name": "Test2",
+        "description": "This is a prop",
+        "coverImage": "",
+        "links": [],
+        "displayTemplate": "default"
+    },
+    {
+        "language": "Java",
+        "name": "Test3",
+        "description": "This is a prop",
+        "coverImage": "",
+        "links": [],
+        "displayTemplate": "default"
+    },
+    {
+        "language": "Java",
+        "name": "Test4",
+        "description": "This is a prop",
+        "coverImage": "",
+        "links": [],
+        "displayTemplate": "default"
+    },
+    {
+        "language": "Java",
+        "name": "Test5",
+        "description": "This is a prop",
+        "coverImage": "",
+        "links": [],
+        "displayTemplate": "default"
+    },
+    {
+        "language": "Java",
+        "name": "Test6",
+        "description": "This is a prop",
+        "coverImage": "",
+        "links": [],
+        "displayTemplate": "default"
+    },
+    {
+        "language": "Rust",
+        "name": "Rescue Rover",
+        "description": "Rescue Rover is a browser game created during the HackRPI-2022 24 hour hackathon with a team of 4 students. This game was written with Rust with a custom game engine using the Vulkan API.",
+        "coverImage": "/assets/project-assets/rover-animation.gif",
+        "links": [["", "https://github.com/nick-celestin-zizic/hackrpi-2022", "Game Code"], ["", "https://github.com/goldminer127/HackRPI-RescueRover/tree/main", "Website Code"]],
+        "displayTemplate": "default"
+    }
+]
