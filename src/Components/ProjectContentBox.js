@@ -74,9 +74,9 @@ const ProjectContentBox = (props) => {
         {
             data.filter(entry => entry.language === langContentState).forEach(entry => {
                 projects.push(
-                    <Box component="div" key={index}>
-                        <ProjectDisplayCard project={entry} index={index} onClick={changeProjectContent.bind(this)}/>)
-                    </Box>
+                    <Fragment key={index}>
+                        <ProjectDisplayCard project={entry} index={index} onClick={changeProjectContent.bind(this)}/>
+                    </Fragment>
                 );
                 index++;
             });
@@ -101,11 +101,11 @@ const ProjectContentBox = (props) => {
 
     return(
         <Box component="div" sx={{width: '90%', height: '75vh', margin: 'auto 5% auto 5%'}}>
-          <Box component="div" sx={{display: 'flex', height: '2.5rem'}}>
+          <Box component="div" sx={{display: 'flex', height: '7%'}}>
             {displayLangNavButtons()}
           </Box>
-          <Box id="language-content-wrapper" component="div" sx={{width: '100%', height: '100%', marginTop:'2rem', display: 'flex', border: 'solid white 2px', borderRadius: '5rem'}}>
-            <Box id="langauge-content" component="div" sx={{width: window.visualViewport.width * .9 - (16 * 8), height: window.visualViewport.height * .75 - (16 * 8), display: 'flex', margin: '4rem', justifyContent: 'center', flexWrap: 'wrap', alignItems: 'center', columnGap: '10%'}}>
+          <Box id="language-content-wrapper" component="div" sx={{width: '100%', height: '90%', marginTop:'2rem', display: 'flex', border: 'solid white 2px', borderRadius: '5rem'}}>
+            <Box id="langauge-content" component="div" sx={{width: window.visualViewport.width * .9 - (16 * 8), height: window.visualViewport.height * .75 - (16 * 8), display: 'flex', margin: 'auto auto auto auto', justifyContent: 'center', flexWrap: 'wrap', alignItems: 'center', columnGap: '10%'}}>
               {displayLangContent()}
               {displayProjectContent()}
             </Box>
