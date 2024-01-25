@@ -14,6 +14,7 @@ const ProjectContentBox = (props) => {
         let element = document.getElementById("language-content-wrapper");
         if(props.rerenderAnimationHandler.shouldNotPlayAnimation.includes("ProjectLangButton") && !props.rerenderAnimationHandler.shouldNotPlayAnimation.includes("language-content-wrapper"))
         {
+            //window.addEventListener('resize', updateSize);
             element.style.opacity = "0";
             let animation = element.animate([
                 {opacity: "0"},
@@ -34,6 +35,7 @@ const ProjectContentBox = (props) => {
         else
         {
             element.style.opacity = "0";
+            //window.removeEventListener('resize', updateSize);
         }
     });
 
@@ -99,9 +101,16 @@ const ProjectContentBox = (props) => {
         }
     }
 
+    const updateSize = () => {
+        let element = document.getElementById("langauge-content");
+        element.style.width = window.visualViewport.width * .9 - (16 * 8);
+        element.style.height = window.visualViewport.height * .75 - (16 * 8);
+        console.log(element.style.width)
+    }
+
     return(
         <Box component="div" sx={{width: '90%', height: '75vh', margin: 'auto 5% auto 5%'}}>
-          <Box component="div" sx={{display: 'flex', height: '7%'}}>
+          <Box component="div" sx={{display: 'flex'}}>
             {displayLangNavButtons()}
           </Box>
           <Box id="language-content-wrapper" component="div" sx={{width: '100%', height: '90%', marginTop:'2rem', display: 'flex', border: 'solid white 2px', borderRadius: '5rem'}}>
