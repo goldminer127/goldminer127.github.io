@@ -28,11 +28,20 @@ function App() {
           <ProjectContentBox langs={["C#", "Java", "Lua", "Rust"]} rerenderAnimationHandler={rerenderAnimationHandler}/>
         );
       case "contact":
+        /*
         return (
           <Box component="div" sx={{width: '90%', height: '75vh', margin: 'auto 5% auto 5%', display: 'flex', justifyContent: 'center', alignItems: 'center', backgroundColor: "white"}}>
             <TestComponent sx={{width: '100%', height: '100%'}}></TestComponent>
           </Box>
         );
+        */
+       return (
+        <Box component="div" sx={{width: '90%', height: '75vh', margin: 'auto 5% auto 5%', display: 'flex', justifyContent: 'center', alignItems: 'center', backgroundColor: "wheat"}}>
+          <Box>
+
+          </Box>
+        </Box>
+       );
       case "secret":
         return (
           <Box component="div" sx={{width: '90%', height: '75vh', border: '1px solid white', borderRadius: '50px', margin: 'auto 5% auto 5%', bgcolor: 'rgb(38, 38, 38)'}}>
@@ -54,7 +63,7 @@ function App() {
     <Box component="div" sx={{bgcolor: 'black', height: '100vh'}}>
       <Box component="div" sx={{height: "5rem", marginBottom: '5vh', textAlign: 'center', justifyContent: 'flex-end', display: 'flex'}}>
         <Box component="div" sx={{width: '50%', height: '100%', display: 'flex'}}>
-          <Box className="header-text" component="div" sx={{margin: "auto 0 auto 10%"}}>
+          <Box id="nav-header" className="header-text" component="div" sx={{margin: "auto 0 auto 10%"}}>
             Brandon Tiev
           </Box>
         </Box>
