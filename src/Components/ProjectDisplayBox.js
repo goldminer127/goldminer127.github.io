@@ -7,7 +7,6 @@ import DiscordInteractionBox from './DiscordInteractionBox';
 const ProjectDisplayBox = (props) => {
     const openNewTab = (link) =>
     {
-        console.log(link)
         if(link !== "")
             window.open(link);
     }

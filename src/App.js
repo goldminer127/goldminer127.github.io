@@ -2,9 +2,10 @@ import './Generic.css';
 import { Box } from '@mui/material';
 import NavButton from "./Components/NavButton";
 import RerenderAnimationHandler from './RerenderAnimationHandler'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ProjectContentBox from './Components/ProjectContentBox';
 import TestComponent from './Components/TestComponent';
+import ContactContentBox from './Components/ContactContentBox';
 
 //Disables animations for added components on rerender if states change
 let rerenderAnimationHandler = new RerenderAnimationHandler();
@@ -12,6 +13,41 @@ let rerenderAnimationHandler = new RerenderAnimationHandler();
 function App() {
   //Pass a state or hardcoded variable into lang buttons basically saying should it update or not. Upon first load it should use animation, upon select it should not. You can control it with the switch content function
   let[contentState, changeContent] = useState("home");
+
+  useEffect(() => {
+    if(contentState === "contact")
+    {
+      let navHeaderContainer = document.getElementById("nav-header-container");
+      let navHeaderText = document.getElementById("nav-header-text");
+
+      let headerAnimation = navHeaderContainer.animate([
+        {width: "50%"},
+        {width: "0%"},
+      ], {duration: navHeaderText.textContent.length * 100});
+      headerAnimation.onfinish = () => {
+        navHeaderContainer.style.width = "0%";
+        navHeaderContainer.style.display = "none";
+      };
+      
+      backspaceEffect(navHeaderText);
+    }
+    else
+    {
+      let navHeaderContainer = document.getElementById("nav-header-container");
+      let navHeaderText = document.getElementById("nav-header-text");
+      navHeaderContainer.removeAttribute("style");
+      navHeaderText.textContent = "Brandon Tiev";
+    }
+  })
+
+  const backspaceEffect = async (element) =>
+  {
+    while(element.textContent.length > 0)
+    {
+      element.textContent = element.textContent.substring(0, element.textContent.length - 1);
+      await new Promise(r => setTimeout(r, 75));
+    }
+  }
 
   const displayContent = (content) =>
   {
@@ -37,9 +73,9 @@ function App() {
         */
        return (
         <Box component="div" sx={{width: '90%', height: '75vh', margin: 'auto 5% auto 5%', display: 'flex', justifyContent: 'center', alignItems: 'center', backgroundColor: "wheat"}}>
-          <Box>
+          <ContactContentBox>
 
-          </Box>
+          </ContactContentBox>
         </Box>
        );
       case "secret":
@@ -59,16 +95,17 @@ function App() {
     rerenderAnimationHandler.resetShouldNotPlayAnimation();
   }
 
+  //Check if styling nav-buttons-container looks better with flex-end or center as justify content with the buttons
   return (
     <Box component="div" sx={{bgcolor: 'black', height: '100vh'}}>
-      <Box component="div" sx={{height: "5rem", marginBottom: '5vh', textAlign: 'center', justifyContent: 'flex-end', display: 'flex'}}>
-        <Box component="div" sx={{width: '50%', height: '100%', display: 'flex'}}>
-          <Box id="nav-header" className="header-text" component="div" sx={{margin: "auto 0 auto 10%"}}>
+      <Box id="nav-bar" component="div" sx={{height: "5rem", marginBottom: '5vh', textAlign: 'center', justifyContent: 'center', display: 'flex'}}>
+        <Box id="nav-header-container" component="div" sx={{width: '50%', height: '100%', display: 'flex'}}>
+          <Box id="nav-header-text" className="header-text" component="div" sx={{margin: "auto 0 auto 10%"}}>
             Brandon Tiev
           </Box>
         </Box>
-        <Box component="div" sx={{width: '50%', height: '100%', justifyContent: 'flex-end', display: 'flex'}}>
-        <NavButton text="Home" onClick={switchContent.bind(this)} content="home"/>
+        <Box id="nav-buttons-container" component="div" sx={{width: '50%', height: '100%', justifyContent: 'center', display: 'flex'}}>
+          <NavButton text="Home" onClick={switchContent.bind(this)} content="home"/>
           <NavButton text="Projects" onClick={switchContent.bind(this)} content="projects"/>
           <NavButton text="Contact Me" onClick={switchContent.bind(this)} content="contact"/>
         </Box>
