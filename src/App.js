@@ -72,8 +72,8 @@ function App() {
         );
         */
        return (
-        <Box component="div" sx={{width: '90%', height: '75vh', margin: 'auto 5% auto 5%', display: 'flex', justifyContent: 'center', alignItems: 'center', backgroundColor: "wheat"}}>
-          <ContactContentBox>
+        <Box component="div" sx={{width: '90%', height: '75vh', margin: 'auto 5% auto 5%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+          <ContactContentBox rerenderAnimationHandler={rerenderAnimationHandler}>
 
           </ContactContentBox>
         </Box>
