@@ -17,8 +17,15 @@ function App() {
   useEffect(() => {
     if(contentState === "contact")
     {
+      let pageContentContainer = document.getElementById("page-content-display");
       let navHeaderContainer = document.getElementById("nav-header-container");
       let navHeaderText = document.getElementById("nav-header-text");
+
+      pageContentContainer.style.height = window.visualViewport.height * 0.75 - document.getElementById("nav-bar").offsetHeight + "px";
+      pageContentContainer.style.display = "flex";
+      pageContentContainer.style.flexDirection = "column";
+      pageContentContainer.style.justifyContent = "center";
+      pageContentContainer.style.alignItems = "center";
 
       let headerAnimation = navHeaderContainer.animate([
         {width: "50%"},
@@ -72,7 +79,7 @@ function App() {
         );
         */
        return (
-        <Box component="div" sx={{width: '90%', height: '75vh', margin: 'auto 5% auto 5%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+        <Box component="div" sx={{width: '90%', height: '50vh', margin: 'auto 5% auto 5%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
           <ContactContentBox rerenderAnimationHandler={rerenderAnimationHandler}>
 
           </ContactContentBox>
@@ -110,7 +117,7 @@ function App() {
           <NavButton text="Contact Me" onClick={switchContent.bind(this)} content="contact"/>
         </Box>
       </Box>
-      <div>
+      <div id="page-content-display">
         {displayContent(contentState)}
       </div>
     </Box>

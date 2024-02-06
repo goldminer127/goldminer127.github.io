@@ -37,14 +37,15 @@ const ContactContentBox = (props) => {
 
     return (
         <Box sx={{width: '100%', height: '100%', overflow: 'hidden', alignItems: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
-            <Box id='contact-header-text' className='title-text' sx={{textAlign: 'center', marginBottom: '5%'}}>
+            <Box id='contact-header-text' className='bigger-title-text' sx={{textAlign: 'center', marginBottom: '2%'}}>
                 Brandon Tiev
             </Box>
+            <Box id='contact-header-text' className='home-text' sx={{textAlign: 'center', marginBottom: '2%'}}>
+                You can find me on these platforms.
+            </Box>
             <Box id='contact-buttons-container' sx={{justifyContent: 'center', display: 'flex', columnGap: '5vw'}}>
-                <ContactButton name="github" image="/assets/contact-assets/github.png"buttonNum={0}/>
-                <ContactButton name="linkedin" image="/assets/contact-assets/github.png" buttonNum={1}/>
-                <ContactButton name="email" image="/assets/contact-assets/github.png" buttonNum={2}/>
-                <ContactButton name="blog" image="/assets/contact-assets/github.png" buttonNum={3}/>
+                <ContactButton name="github" image="/assets/contact-assets/github.png" link="https://github.com/goldminer127" buttonNum={0}/>
+                <ContactButton name="linkedin" image="/assets/contact-assets/linkedin.png" link="https://www.linkedin.com/in/brandon-tiev/" buttonNum={1}/>
             </Box>
         </Box>
     );
