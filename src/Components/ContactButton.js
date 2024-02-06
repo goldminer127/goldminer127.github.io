@@ -36,7 +36,7 @@ const ContactButton = ({name, link, image, buttonNum}) =>
     }
 
     return(
-        <Box id={"contact-button-" + name} className="contact-option-container" component={"div"} onMouseOver={onMouseOverHandler.bind(this)} onMouseLeave={onMouseLeaveHandler.bind(this)} onclick={onclickHandler.bind(this)}>
+        <Box id={"contact-button-" + name} className="contact-option-container" component={"div"} onMouseOver={onMouseOverHandler} onMouseLeave={onMouseLeaveHandler} onClick={onclickHandler}>
             <img className="contact-button-image" src={image}/>
         </Box>
     );
