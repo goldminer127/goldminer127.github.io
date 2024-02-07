@@ -18,6 +18,7 @@ function App() {
     if(contentState === "contact")
     {
       let pageContentContainer = document.getElementById("page-content-display");
+      let contactNavButton = document.getElementById("Contact Mebutton");
       let navHeaderContainer = document.getElementById("nav-header-container");
       let navHeaderText = document.getElementById("nav-header-text");
 
@@ -26,6 +27,19 @@ function App() {
       pageContentContainer.style.flexDirection = "column";
       pageContentContainer.style.justifyContent = "center";
       pageContentContainer.style.alignItems = "center";
+
+      contactNavButton.style.display = 'none';
+      /*
+      let contactNavAnimation = contactNavButton.animate([
+        {opacity: '1'},
+        {opacity: '0'},
+        {opacity: '0', width: '10rem'},
+        {opacity: '0', width: '0'}
+      ], {duration: 500});
+      contactNavAnimation.onfinish = () => {
+        contactNavButton.style.display = 'none';
+      }
+      */
 
       let headerAnimation = navHeaderContainer.animate([
         {width: "50%"},
@@ -40,10 +54,11 @@ function App() {
     }
     else
     {
-      let navHeaderContainer = document.getElementById("nav-header-container");
-      let navHeaderText = document.getElementById("nav-header-text");
-      navHeaderContainer.removeAttribute("style");
-      navHeaderText.textContent = "Brandon Tiev";
+      document.getElementById("page-content-display").removeAttribute('style');
+      document.getElementById("Contact Mebutton").removeAttribute('style');
+
+      document.getElementById("nav-header-container").removeAttribute("style");
+      document.getElementById("nav-header-text").textContent = "Brandon Tiev";
     }
   })
 
