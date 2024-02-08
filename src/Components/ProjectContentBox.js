@@ -11,6 +11,7 @@ const ProjectContentBox = (props) => {
     let[projectDisplayState, changeProject] = useState("none");
 
     useEffect(() => {
+        window.addEventListener('resize', updateSize);
         let element = document.getElementById("language-content-wrapper");
         if(props.rerenderAnimationHandler.shouldNotPlayAnimation.includes("ProjectLangButton") && !props.rerenderAnimationHandler.shouldNotPlayAnimation.includes("language-content-wrapper"))
         {
@@ -35,6 +36,7 @@ const ProjectContentBox = (props) => {
         {
             element.style.opacity = "0";
         }
+        return () => {window.removeEventListener('resize', updateSize);} //removes event listener when component unmounts
     });
 
     const switchLangContent = (type) =>
@@ -74,9 +76,9 @@ const ProjectContentBox = (props) => {
         {
             data.filter(entry => entry.language === langContentState).forEach(entry => {
                 projects.push(
-                    <Box component="div" key={index}>
-                        <ProjectDisplayCard project={entry} index={index} onClick={changeProjectContent.bind(this)}/>)
-                    </Box>
+                    <Fragment key={index}>
+                        <ProjectDisplayCard project={entry} index={index} onClick={changeProjectContent.bind(this)}/>
+                    </Fragment>
                 );
                 index++;
             });
@@ -99,13 +101,23 @@ const ProjectContentBox = (props) => {
         }
     }
 
+    const updateSize = () => {
+        let element = document.getElementById("langauge-content");
+        let width = window.visualViewport.width * .9 - (16 * 8);
+        let height = window.visualViewport.height * .75 - (16 * 8);
+        console.log(element.style.width);
+        element.style.width = width + "px";
+        element.style.height = height + "px";
+        console.log("After  " + element.style.width);
+    }
+
     return(
         <Box component="div" sx={{width: '90%', height: '75vh', margin: 'auto 5% auto 5%'}}>
-          <Box component="div" sx={{display: 'flex', height: '2.5rem'}}>
+          <Box component="div" sx={{display: 'flex'}}>
             {displayLangNavButtons()}
           </Box>
-          <Box id="language-content-wrapper" component="div" sx={{width: '100%', height: '100%', marginTop:'2rem', display: 'flex', border: 'solid white 2px', borderRadius: '5rem'}}>
-            <Box id="langauge-content" component="div" sx={{width: window.visualViewport.width * .9 - (16 * 8), height: window.visualViewport.height * .75 - (16 * 8), display: 'flex', margin: '4rem', justifyContent: 'center', flexWrap: 'wrap', alignItems: 'center', columnGap: '10%'}}>
+          <Box id="language-content-wrapper" component="div" sx={{width: '100%', height: '90%', marginTop:'2rem', display: 'flex', border: 'solid white 2px', borderRadius: '5rem'}}>
+            <Box id="langauge-content" component="div" style={{width: window.visualViewport.width * .9 - (16 * 8), height: window.visualViewport.height * .75 - (16 * 8)}} sx={{display: 'flex', margin: 'auto auto auto auto', justifyContent: 'center', flexWrap: 'wrap', alignItems: 'center', columnGap: '10%'}}>
               {displayLangContent()}
               {displayProjectContent()}
             </Box>
