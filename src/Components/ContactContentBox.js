@@ -11,6 +11,7 @@ const ContactContentBox = (props) => {
         {
             let buttonsContent = document.getElementById("contact-buttons-container");
             buttonsContent.style.opacity = "0"
+            buttonsContent.getAnimations().every(animation => animation.cancel());
             let buttonsAnimation = buttonsContent.animate([
                 {opacity: "0"},
                 {opacity: "1"}

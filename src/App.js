@@ -29,18 +29,8 @@ function App() {
       pageContentContainer.style.alignItems = "center";
 
       contactNavButton.style.display = 'none';
-      /*
-      let contactNavAnimation = contactNavButton.animate([
-        {opacity: '1'},
-        {opacity: '0'},
-        {opacity: '0', width: '10rem'},
-        {opacity: '0', width: '0'}
-      ], {duration: 500});
-      contactNavAnimation.onfinish = () => {
-        contactNavButton.style.display = 'none';
-      }
-      */
 
+      navHeaderContainer.getAnimations().every(animation => animation.cancel());
       let headerAnimation = navHeaderContainer.animate([
         {width: "50%"},
         {width: "0%"},
@@ -58,6 +48,7 @@ function App() {
       document.getElementById("Contact Mebutton").removeAttribute('style');
 
       document.getElementById("nav-header-container").removeAttribute("style");
+      document.getElementById("nav-header-container").getAnimations().every(animation => animation.cancel());
       document.getElementById("nav-header-text").textContent = "Brandon Tiev";
     }
   })
