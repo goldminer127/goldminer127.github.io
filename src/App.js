@@ -15,6 +15,8 @@ function App() {
   let[contentState, changeContent] = useState("home");
 
   useEffect(() => {
+    const abortController = new AbortController();
+    const signal = abortController.signal;
     if(contentState === "contact")
     {
       let pageContentContainer = document.getElementById("page-content-display");
@@ -39,10 +41,20 @@ function App() {
         navHeaderContainer.style.width = "0%";
         navHeaderContainer.style.display = "none";
       };
-      
+
+      const backspaceEffect = async (element) =>
+      {
+        element.textContent += "_";
+        while(element.textContent.length > 0 && !signal.aborted)
+        {
+          element.textContent = (element.textContent.length > 1) ? element.textContent.slice(0, element.textContent.length - 2) + element.textContent.slice(element.textContent.length - 1, element.textContent.length) : element.textContent.substring(0,0);
+          await new Promise(r => setTimeout(r, 75));
+        }
+      }
+
       backspaceEffect(navHeaderText);
     }
-    else
+    return () =>
     {
       document.getElementById("page-content-display").removeAttribute('style');
       document.getElementById("Contact Mebutton").removeAttribute('style');
@@ -50,17 +62,9 @@ function App() {
       document.getElementById("nav-header-container").removeAttribute("style");
       document.getElementById("nav-header-container").getAnimations().every(animation => animation.cancel());
       document.getElementById("nav-header-text").textContent = "Brandon Tiev";
+      abortController.abort();
     }
   })
-
-  const backspaceEffect = async (element) =>
-  {
-    while(element.textContent.length > 0)
-    {
-      element.textContent = element.textContent.substring(0, element.textContent.length - 1);
-      await new Promise(r => setTimeout(r, 75));
-    }
-  }
 
   const displayContent = (content) =>
   {
