@@ -1,0 +1,14 @@
+.contact-option-container{
+    width: 8rem;
+    height: 4rem;
+    border: solid white 2px;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.contact-button-image{
+    height: 75%
+}
