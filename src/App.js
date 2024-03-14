@@ -34,8 +34,8 @@ function App() {
 
       navHeaderContainer.getAnimations().every(animation => animation.cancel());
       let headerAnimation = navHeaderContainer.animate([
-        {width: "50%"},
-        {width: "0%"},
+        {width: "auto"},
+        {width: "auto"},
       ], {duration: navHeaderText.textContent.length * 100});
       headerAnimation.onfinish = () => {
         navHeaderContainer.style.width = "0%";
@@ -117,7 +117,7 @@ function App() {
     <Box component="div" sx={{bgcolor: 'black', height: '100vh'}}>
       <Box id="nav-bar" component="div" sx={{height: "5rem", marginBottom: '5vh', textAlign: 'center', justifyContent: 'center', display: 'flex'}}>
         <Box id="nav-header-container" component="div" sx={{width: '50%', height: '100%', display: 'flex'}}>
-          <Box id="nav-header-text" className="header-text" component="div" sx={{margin: "auto 0 auto 10%"}}>
+          <Box id="nav-header-text" className="header-text" component="div" sx={{margin: "auto auto auto 10%"}}>
             Brandon Tiev
           </Box>
         </Box>
