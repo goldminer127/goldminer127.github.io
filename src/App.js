@@ -78,7 +78,7 @@ function App() {
         );
       case "projects":
         return (
-          <ProjectContentBox langs={["C#", "Java", "Lua", "Rust"]} rerenderAnimationHandler={rerenderAnimationHandler}/>
+          <ProjectContentBox rerenderAnimationHandler={rerenderAnimationHandler}/>
         );
       case "contact":
         /*

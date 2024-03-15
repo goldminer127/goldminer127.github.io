@@ -2,79 +2,47 @@
     {
         "language": "C#",
         "name": "GameTime",
-        "description": "A discord bot that allows server members to play mini-games on. This was my first project outside of school and my intro to C#. This project evolves as I expand my abilities.",
+        "description": "A discord bot that allows server members to play mini-games on. This was my first project outside of school and my intro to C#.",
         "coverImage": "",
         "links": [["", "https://github.com/goldminer127/GameTime", "Source Code"]],
-        "displayTemplate": "demo"
+        "displayTemplate": "default"
     },
     {
         "language": "C#",
-        "name": "Lookup",
-        "description": "An internship project",
-        "coverImage": "",
+        "name": "Employee Lookup",
+        "description": "I worked on this project for an internship under Assured Guaranty. Previously, retrieving employee info in an active directory was done manually and took a lot of time if the list was long. This project automated this lookup process by allowing the user to feed a list of group or member ids or names to the program and specify what information should be retrieved. The program was designed to accept inline arguments, text files, and excel files and would return the data in an excel file.",
+        "coverImage": "/assets/project-assets/assured.png",
         "links": [],
         "displayTemplate": "default"
     },
     {
         "language": "C#",
-        "name": "Glacoma test",
-        "description": "A dev job",
-        "coverImage": "",
+        "name": "VR Glaucoma Test",
+        "description": "A research project contracted by SUNY Optometry. It involves using VR to test patients for Glaucoma.",
+        "coverImage": "/assets/project-assets/sunyopt.png",
         "links": [],
         "displayTemplate": "default"
     },
     {
         "language": "Lua",
         "name": "TShell",
-        "description": "A minecraft mod extension",
+        "description": "Made for a Minecraft mod, ComputerCraft. Acts as a subshell for ComputerCraft's turtle shell. Allows the user to download task specific modules to either automate tasks or assign premade customizable jobs.",
         "coverImage": "",
-        "links": [],
+        "links": [["", "https://github.com/goldminer127/TShell", "Source Code"]],
         "displayTemplate": "default"
     },
     {
         "language": "Java",
-        "name": "Test1",
-        "description": "This is a prop",
+        "name": "JavaOS",
+        "description": "A basic operating system created in Java as a school project for my Operating Systems course.",
         "coverImage": "",
-        "links": [],
+        "links": [["", "https://github.com/goldminer127/CSI412-Project", "Source Code"]],
         "displayTemplate": "default"
     },
     {
         "language": "Java",
-        "name": "Test2",
-        "description": "This is a prop",
-        "coverImage": "",
-        "links": [],
-        "displayTemplate": "default"
-    },
-    {
-        "language": "Java",
-        "name": "Test3",
-        "description": "This is a prop",
-        "coverImage": "",
-        "links": [],
-        "displayTemplate": "default"
-    },
-    {
-        "language": "Java",
-        "name": "Test4",
-        "description": "This is a prop",
-        "coverImage": "",
-        "links": [],
-        "displayTemplate": "default"
-    },
-    {
-        "language": "Java",
-        "name": "Test5",
-        "description": "This is a prop",
-        "coverImage": "",
-        "links": [],
-        "displayTemplate": "default"
-    },
-    {
-        "language": "Java",
-        "name": "Test6",
-        "description": "This is a prop",
+        "name": "Rhythmancy",
+        "description": "A WIP Minecraft mod that will allow players to cast magical spells with the power of music.",
         "coverImage": "",
         "links": [],
         "displayTemplate": "default"
@@ -85,6 +53,30 @@
         "description": "Rescue Rover is a browser game created during the HackRPI-2022 24 hour hackathon with a team of 4 students. This game was written with Rust with a custom game engine using the Vulkan API.",
         "coverImage": "/assets/project-assets/rover-animation.gif",
         "links": [["", "https://github.com/nick-celestin-zizic/hackrpi-2022", "Game Code"], ["", "https://github.com/goldminer127/HackRPI-RescueRover/tree/main", "Website Code"]],
+        "displayTemplate": "default"
+    },
+    {
+        "language": "React",
+        "name": "This Website!",
+        "description": "You are looking at it! This website was created with React.js and MaterialUI. I am very proud with what is already here. I will be adding new and fun features soon!",
+        "coverImage": "",
+        "links": [["", "https://github.com/goldminer127/goldminer127.github.io", "Source Code"]],
+        "displayTemplate": "default"
+    },
+    {
+        "language": "React",
+        "name": "React Workshop",
+        "description": "During my time as part of the Institute of Electrical and Electronic Engineers UAlbany Student Branch, I gave an intro workshop to teach students the basics to React. This workshop included a small lecture and a hands on section where students recreated a demo website I live coded. This was my first ever workshop that I hosted. NOTE: The attached PDF is basically a summary of what I went over during the workshop, details and specifications of some topics were covered verbally during the workshop and not included in the slides.",
+        "coverImage": "",
+        "links": [["", "replacewithdomain|reactslides.pdf", "Slides"], ["", "https://github.com/goldminer127/React_Workshop", "Demo Source Code"]],
+        "displayTemplate": "default"
+    },
+    {
+        "language": "React",
+        "name": "UA-IEEE Website",
+        "description": "My first React project! I was recruited to the Institute of Electrical and Electronic Engineers UAlbany Student Branch as a webmaster and tasked to redesign the org's website. This was an incredible learning experience as I had no experience in web development previously. The legacy version used class based React. I am currently leading a student development team to make improvements to the website and translate the code to functional based React.",
+        "coverImage": "/assets/project-assets/ieee.jfif",
+        "links": [["", "https://github.com/goldminer127/ieee-website/tree/legacy-site", "Legacy Source Code"]],
         "displayTemplate": "default"
     }
 ]

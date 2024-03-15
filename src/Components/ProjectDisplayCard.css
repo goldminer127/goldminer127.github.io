@@ -11,8 +11,7 @@
 
 .project-cover-image
 {
-    width: 50%;
-    height: 50%;
+	height: 100%;
 }
 
 @keyframes pulse {
