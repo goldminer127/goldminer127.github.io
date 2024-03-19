@@ -27,7 +27,7 @@
         "language": "Lua",
         "name": "TShell",
         "description": "Made for a Minecraft mod, ComputerCraft. Acts as a subshell for ComputerCraft's turtle shell. Allows the user to download task specific modules to either automate tasks or assign premade customizable jobs.",
-        "coverImage": "",
+        "coverImage": "/assets/project-assets/tshell.png",
         "links": [["", "https://github.com/goldminer127/TShell", "Source Code"]],
         "displayTemplate": "default"
     },
@@ -58,7 +58,7 @@
     {
         "language": "React",
         "name": "This Website!",
-        "description": "You are looking at it! This website was created with React.js and MaterialUI. I am very proud with what is already here. I will be adding new and fun features soon!",
+        "description": "You are looking at it! This website was created with React.js and MaterialUI. I will be adding new and fun features soon!",
         "coverImage": "",
         "links": [["", "https://github.com/goldminer127/goldminer127.github.io", "Source Code"]],
         "displayTemplate": "default"
@@ -68,7 +68,7 @@
         "name": "React Workshop",
         "description": "During my time as part of the Institute of Electrical and Electronic Engineers UAlbany Student Branch, I gave an intro workshop to teach students the basics to React. This workshop included a small lecture and a hands on section where students recreated a demo website I live coded. This was my first ever workshop that I hosted. NOTE: The attached PDF is basically a summary of what I went over during the workshop, details and specifications of some topics were covered verbally during the workshop and not included in the slides.",
         "coverImage": "",
-        "links": [["", "replacewithdomain|reactslides.pdf", "Slides"], ["", "https://github.com/goldminer127/React_Workshop", "Demo Source Code"]],
+        "links": [["", "https://github.com/goldminer127/React_Workshop", "Demo Source Code"]],
         "displayTemplate": "default"
     },
     {
