@@ -7,7 +7,11 @@ import DiscordInteractionBox from './DiscordInteractionBox';
 const ProjectDisplayBox = (props) => {
     const openNewTab = (link) =>
     {
-        if(link !== "")
+        if(link.includes("https") == false && link.includes("http") == false){
+            let parsedLink = link.split('|')
+            window.open(window.location.hostname + '/' + parsedLink[1])
+        }
+        else if(link !== "")
             window.open(link);
     }
 

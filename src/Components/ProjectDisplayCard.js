@@ -65,7 +65,7 @@ const ProjectLangBox = (props) =>
                 <Box component="div" sx={{textAlign: 'center', marginTop: '10%', marginBottom: '10%'}}>
                     {props.project.name}
                 </Box>
-                <Box component="div" sx={{display: 'flex', justifyContent: 'center'}}>
+                <Box component="div" sx={{height: '50%', display: 'flex', justifyContent: 'center'}}>
                     <img className='project-cover-image' src={coverImage}/>
                 </Box>
             </Box>
