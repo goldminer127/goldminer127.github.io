@@ -21,7 +21,6 @@ function App() {
     {
       let pageContentContainer = document.getElementById("page-content-display");
       let contactNavButton = document.getElementById("Contact Mebutton");
-      let navButtonsContainer = document.getElementById("nav-buttons-container")
       let navHeaderContainer = document.getElementById("nav-header-container");
       let navHeaderText = document.getElementById("nav-header-text");
 
@@ -31,7 +30,17 @@ function App() {
       pageContentContainer.style.justifyContent = "center";
       pageContentContainer.style.alignItems = "center";
 
-      contactNavButton.style.display = "none";
+      contactNavButton.style.display = 'none';
+
+      navHeaderContainer.getAnimations().every(animation => animation.cancel());
+      let headerAnimation = navHeaderContainer.animate([
+        {width: "auto"},
+        {width: "auto"},
+      ], {duration: navHeaderText.textContent.length * 100});
+      headerAnimation.onfinish = () => {
+        navHeaderContainer.style.width = "0%";
+        navHeaderContainer.style.display = "none";
+      };
 
       const backspaceEffect = async (element) =>
       {
@@ -42,24 +51,8 @@ function App() {
           await new Promise(r => setTimeout(r, 75));
         }
       }
+
       backspaceEffect(navHeaderText);
-
-      navHeaderContainer.getAnimations().every(animation => animation.cancel());
-      navHeaderContainer.animate([
-        {width: "50%"},
-        {width: "0%"},
-      ], {duration: navHeaderText.textContent.length * 75}).onfinish = () => {
-        navHeaderContainer.style.width = "0%";
-        navHeaderContainer.style.display = "none";
-      };
-
-      navButtonsContainer.getAnimations().every(animation => animation.cancel());
-      navButtonsContainer.animate([
-        {width: '50%'},
-        {width: '100%'}
-      ], {duration: navHeaderText.textContent.length * 75}).onfinish = () => {
-        navButtonsContainer.style.width = "100%";
-      };
     }
     return () =>
     {
