@@ -2,7 +2,7 @@
     {
         "language": "C#",
         "name": "GameTime",
-        "description": "A discord bot that allows server members to play mini-games on. This was my first project outside of school and my intro to C#.",
+        "description": "A discord bot that allows server members to play text based mini-games. This was my first project outside of school and my intro to C#.",
         "coverImage": "",
         "links": [["", "https://github.com/goldminer127/GameTime", "Source Code"]],
         "displayTemplate": "default"
