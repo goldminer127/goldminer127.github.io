@@ -60,6 +60,9 @@ const ProjectContentBox = (props) => {
     const switchLangContent = (type) => {
         if (projectDisplayState !== "none")
             changeProject("none");
+        let arr = props.rerenderAnimationHandler.shouldNotPlayAnimation.filter(entry => entry.includes("ProjectDisplayCard"))
+        if (arr.length !== 0)
+            arr.map(entry => props.rerenderAnimationHandler.removeShouldNotPlayAnimation(entry))
 
         changeLang(type);
     }
@@ -91,7 +94,7 @@ const ProjectContentBox = (props) => {
             data.filter(entry => entry.language === langContentState).forEach(entry => {
                 projects.push(
                     <Fragment key={index}>
-                        <ProjectDisplayCard project={entry} index={index} onClick={changeProjectContent.bind(this)} />
+                        <ProjectDisplayCard project={entry} index={index} onClick={changeProjectContent.bind(this)} rerenderAnimationHandler={props.rerenderAnimationHandler} />
                     </Fragment>
                 );
                 index++;
@@ -107,7 +110,7 @@ const ProjectContentBox = (props) => {
     const displayProjectContent = () => {
         if (projectDisplayState !== "none") {
             return (
-                <ProjectDisplayBox project={data.find(entry => entry.name === projectDisplayState)} />
+                <ProjectDisplayBox project={data.find(entry => entry.name === projectDisplayState)} unselectProjectHandler={changeProjectContent.bind(this)} />
             );
         }
     }
@@ -116,10 +119,8 @@ const ProjectContentBox = (props) => {
         let element = document.getElementById("langauge-content");
         let width = window.visualViewport.width * .9 - (16 * 8);
         let height = window.visualViewport.height * .75 - (16 * 8);
-        console.log(element.style.width);
         element.style.width = width + "px";
         element.style.height = height + "px";
-        console.log("After  " + element.style.width);
     }
 
     return (
