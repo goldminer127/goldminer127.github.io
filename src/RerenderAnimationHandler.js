@@ -11,7 +11,7 @@ class RerenderAnimationHandler
     }
     removeShouldNotPlayAnimation(componentName)
     {
-        let index = this.shouldNotPlayAnimation.find(componentName);
+        let index = this.shouldNotPlayAnimation.findIndex(entry => entry === componentName);
         if(index !== undefined)
             this.shouldNotPlayAnimation.splice(index, 1);
         return this.shouldNotPlayAnimation;
