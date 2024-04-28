@@ -80,7 +80,7 @@ function App() {
     {
       case "home":
         return (
-          <Box className="home-text" component="div" sx={{width: '90%', height: '75vh', margin: 'auto 5% auto 5%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+          <Box className="home-text" component="div" sx={{width: '90%', height: '75vh', margin: 'auto 5% auto 5%', display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center'}}>
             I am a developer who just recently graduated from University at Albany, SUNY. I am currently attending Stony Brook University for my Masters in Computer Science. I've worked with C#, Java, HTML/CSS/JS and others.
           </Box>
         );
